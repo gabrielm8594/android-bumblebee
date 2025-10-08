@@ -32,8 +32,8 @@ Este repositório contém o código e documentação de um robô construído com
 
 ### Estrutura do Repositório
 
-- `/src`: Código-fonte Arduino
-- `/docs`: Diagramas, imagens e documentação
+- `/src`: Código-fonte Arduino ![docs](https://github.com/gabrielm8594/android-bumblebee/tree/main/src)
+- `/docs`: Diagramas, imagens e documentação ![[src](https://github.com/gabrielm8594/android-bumblebee/tree/main/docs)
   ![Esquema de montagem representado no tinkercad](/docs/projetc-bumblebee.png)
 
 ### Contribuições
@@ -73,8 +73,8 @@ This repository contains the code and documentation for a robot built with Ardui
 
 ### Repository Structure
 
-- `/src`: Arduino source code
-- `/docs`: Diagrams, images, and documentation
+- `/src`: Arduino source code ![docs](https://github.com/gabrielm8594/android-bumblebee/tree/main/src)
+- `/docs`: Diagrams, images, and documentation ![src](https://github.com/gabrielm8594/android-bumblebee/tree/main/docs)
    ![Mounting scheme represented on tinkercad](/docs/projetc-bumblebee.png)
 
 
