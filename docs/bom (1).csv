@@ -1,0 +1,7 @@
+﻿Nome,Quantidade,Componente
+"U1",1," Arduino Uno R3"
+"M1, M2",2," Motor de engrenagem de uso não profissional"
+"DIST1",1," Sensor de distância ultrassônico (quatro pinos)"
+"BAT1",1," Bateria 9V"
+"U2",1," Acionador de motor de ponte H"
+"S2",1," Interruptor deslizante"
