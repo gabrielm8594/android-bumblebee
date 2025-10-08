@@ -34,6 +34,7 @@ Este repositório contém o código e documentação de um robô construído com
 
 - `/src`: Código-fonte Arduino
 - `/docs`: Diagramas, imagens e documentação
+  ![Esquema de montagem representado no tinkercad](/docs/projetc-bumblebee.png)
 
 ### Contribuições
 
@@ -74,6 +75,8 @@ This repository contains the code and documentation for a robot built with Ardui
 
 - `/src`: Arduino source code
 - `/docs`: Diagrams, images, and documentation
+   ![Mounting scheme represented on tinkercad](/docs/projetc-bumblebee.png)
+
 
 ### Contributions
 
