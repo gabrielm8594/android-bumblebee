@@ -1,0 +1,101 @@
+/*
+  Carrinho Labirinto - L293D + Arduino UNO
+  Sensor HC-SR04 detecta paredes e faz giros de 90° para esquerda
+  @autor João Victor Almeida
+*/
+
+#define TRIG 7
+#define ECHO 8
+
+#define M1A 5   // Motor esquerdo
+#define M1B 6
+#define M2A 9   // Motor direito
+#define M2B 10
+
+int velocidadeesq = 120; // velocidade do PWM pro motor esquerdo
+int velocidadedir = 100; // pro motor direito
+
+void setup() {
+  pinMode(TRIG, OUTPUT);
+  pinMode(ECHO, INPUT);
+  pinMode(M1A, OUTPUT);
+  pinMode(M1B, OUTPUT);
+  pinMode(M2A, OUTPUT);
+  pinMode(M2B, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // 1️⃣ Anda reto até encontrar parede
+  while (medirDistancia() > 7) {
+    frente();
+  }
+  parar();
+  delay(1000);
+
+  // 2️⃣ Vira 90° para a esquerda
+  girarEsquerda();
+  delay(720);
+  parar();
+  delay(1000);
+
+  // 3️⃣ Anda de novo até próxima parede
+  while (medirDistancia() > 7) {
+    frente();
+  }
+  parar();
+  delay(1000);
+
+  // 4️⃣ Segunda curva para esquerda
+  girarEsquerda();
+  delay(720);
+  parar();
+  delay(1000);
+
+  // 5️⃣ Anda até sair do labirinto (sem obstáculos)
+  while (medirDistancia() > 7) {
+    frente();
+  }
+  parar();
+
+  // 6️⃣ Finaliza
+  while (true);
+}
+
+// ================== FUNÇÕES ==================
+
+long medirDistancia() {
+  digitalWrite(TRIG, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG, LOW);
+  long duracao = pulseIn(ECHO, HIGH, 30000);
+  if (duracao == 0) return 999; // sem leitura válida
+  long distancia = duracao / 58.2;
+  Serial.print("Distancia: ");
+  Serial.println(distancia);
+  return distancia;
+}
+
+void frente() {
+  digitalWrite(M1A, LOW);
+  analogWrite(M1B, velocidade);
+  digitalWrite(M2A, LOW);
+  analogWrite(M2B, velocidade);
+}
+
+void parar() {
+  digitalWrite(M1A, LOW);
+  digitalWrite(M1B, LOW);
+  digitalWrite(M2A, LOW);
+  digitalWrite(M2B, LOW);
+}
+
+void girarEsquerda() {
+  // Ambas as rodas ativas em sentidos opostos
+  digitalWrite(M1B, LOW);
+  analogWrite(M1A, velocidade);   // esquerda para trás
+  digitalWrite(M2A, LOW);
+  analogWrite(M2B, velocidade);   // direita para frente
+}
